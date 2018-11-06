@@ -28,7 +28,7 @@ class HDTutoMail extends Mailable
 
      */
 
-     public $demo;
+     public $objDemo;
 
     /**
 
@@ -40,9 +40,9 @@ class HDTutoMail extends Mailable
 
      */
 
-    public function __construct($demo)
+    public function __construct($objDemo)
     {
-        $this->demo = $demo;
+        $this->objDemo =$objDemo;
     }
  
 

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('emails.send');
 });
 Route::get('Mail', function () {
 
@@ -22,7 +22,7 @@ Route::get('Mail', function () {
 
 });
 
-
+Route::resource('email','EmailController');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
