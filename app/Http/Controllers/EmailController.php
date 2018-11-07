@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mail\HDTutoMail;
+use App\Mail\NggTimePieces;
 use Illuminate\Support\Facades\Mail;
 use App\Email;
+use App\User;
 class EmailController extends Controller
 {
     /**
@@ -48,8 +49,11 @@ class EmailController extends Controller
         $objDemo->date = $request->date;
         $objDemo->message = $request->message;
         $objDemo->save();
- 
-        Mail::to('tr.narathorn@nioachievers.com')->send(new HDTutoMail($objDemo));
+        $users = User::all();
+        foreach ( $users as  $user){
+           Mail::to($user->email)->send(new NggTimePieces($objDemo));
+        }
+       
       
         dd("Email is Send.");
     }

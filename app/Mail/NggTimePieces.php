@@ -12,7 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 
 
-class HDTutoMail extends Mailable
+class NggTimePieces extends Mailable
 
 {
 
@@ -60,7 +60,7 @@ class HDTutoMail extends Mailable
 
     {
       
-        return $this->view('emails.HDTutoMail');
+        return $this->view('emails.NggTimePieces');
 
     }
 
