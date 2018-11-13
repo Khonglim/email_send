@@ -36,9 +36,10 @@ class EmailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {$this->validate($request,[
+    {
+        $this->validate($request,[
         'g-recaptcha-response' => 'required|captcha'
-    ]);
+   ]);
         
         $objDemo = new Email();
         $objDemo->fristname = $request->fristname;

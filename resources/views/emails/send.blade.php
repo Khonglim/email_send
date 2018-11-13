@@ -9,7 +9,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                <form method="POST" action="{{url('email')}}" aria-label="{{ __('Register') }}">
+                <form method="POST" action="{{url('email')}}" aria-label="{{ __('Register') }}"  id="inviter">
                         @csrf
                        
                         <div class="form-group row">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                                <label for="message" class="col-md-4 col-form-label text-md-right">{{ __('message') }}</label>
+                                <label for="message" class="col-md-4 col-form-label text-md-right">{{ __('date') }}</label>
     
                                 <div class="col-md-6">
                                     <input id="message" type="date" class="form-control" name="date" required>
@@ -93,9 +93,10 @@
                                
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <span id="sendingmail">  <button type="submit" class="btn btn-primary " >
                                     {{ __('Register') }}
                                 </button>
+                                </span>
                             </div>
                         </div>
 
@@ -106,4 +107,13 @@
         </div>
     </div>
 </div>
+<script>
+
+$("#inviter").submit(function(){    
+    
+     $("#sendingmail").html("ระบบกำลังทำการส่งอีเมล์โปรดรอสักครู่.....");    
+     
+      return true; });
+
+</script>
 @endsection
