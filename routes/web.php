@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('emails.send');
+    return view('emails.contact');
 });
 
 Route::resource('appointment','AppointmentController');
