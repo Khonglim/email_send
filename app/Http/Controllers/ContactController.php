@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mail\NggTimePieces;
-use Illuminate\Support\Facades\Mail;
-use App\Email;
-use App\Contact;
-class EmailController extends Controller
+
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,31 +34,7 @@ class EmailController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-        'g-recaptcha-response' => 'required|captcha'
-   ]);
-        
-        $objDemo = new Email();
-        $objDemo->firstname = $request->first_name;
-        $objDemo->lastname = $request->last_name;
-        $objDemo->phonenumber = $request->phone;
-        $objDemo->email = $request->email;
-        $objDemo->store = $request->store;
-        $objDemo->date_reserve = $request->date_reserve;
-        $objDemo->message = $request->message;
-        $objDemo->day ="null";
-        $objDemo->time = "null";
-        $objDemo->ip = $request->ip();
-        $objDemo->page ="null";
-        $objDemo->status ="null";
-        $objDemo->save();
-        //$contact = Contact::all();
-       // foreach ( $contact as  $contacts){
-        
-       // }
-        Mail::to('tr.narathorn@nioachievers.com')->send(new NggTimePieces($objDemo));
-      
-        dd("Email is Send.");
+        //
     }
 
     /**

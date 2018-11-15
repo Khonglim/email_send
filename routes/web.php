@@ -14,15 +14,9 @@
 Route::get('/', function () {
     return view('emails.send');
 });
-Route::get('Mail', function () {
 
-	
-    Mail::to('tr.narathorn@nioachievers.com')->send(new \App\Mail\HDTutoMail());
-    dd("Email is Send.");
-
-});
-
-Route::resource('email','EmailController');
+Route::resource('appointment','AppointmentController');
+Route::resource('contact','ContactmentController');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
