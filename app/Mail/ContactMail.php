@@ -3,32 +3,15 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-
 use Illuminate\Mail\Mailable;
-
 use Illuminate\Queue\SerializesModels;
-
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-
-
-class NggTimePieces extends Mailable
-
+class ContactMail extends Mailable
 {
-
     use Queueable, SerializesModels;
 
-    /**
-
-     * The user instance.
-
-     *
-
-     * @var Order
-
-     */
-
-     public $objDemo;
+    public $objDemo;
 
     /**
 
@@ -60,7 +43,7 @@ class NggTimePieces extends Mailable
 
     {
       
-        return $this->view('emails.NggTimePieces');
+        return $this->view('emails.NggContact');
 
     }
 

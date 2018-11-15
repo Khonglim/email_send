@@ -3,32 +3,15 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-
 use Illuminate\Mail\Mailable;
-
 use Illuminate\Queue\SerializesModels;
-
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-
-
-class HDTutoMail extends Mailable
-
+class AppointmentMail extends Mailable
 {
-
     use Queueable, SerializesModels;
 
-    /**
-
-     * The user instance.
-
-     *
-
-     * @var Order
-
-     */
-
-     public $objDemo;
+    public $objDemo;
 
     /**
 
@@ -60,7 +43,7 @@ class HDTutoMail extends Mailable
 
     {
       
-        return $this->view('emails.HDTutoMail');
+        return $this->view('emails.NggAppointment');
 
     }
 

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mail\NggTimePieces;
+use App\Mail\AppointmentMail;
 use Illuminate\Support\Facades\Mail;
 use App\Email;
-use App\Contact;
+
 class AppointmentController extends Controller
 {
     /**
@@ -49,17 +49,15 @@ class AppointmentController extends Controller
             $objDemo->store = $request->store;
             $objDemo->date_reserve = $request->date_reserve;
             $objDemo->message = $request->message;
-            $objDemo->day ="null";
-            $objDemo->time = "null";
+           
             $objDemo->ip = $request->ip();
-            $objDemo->page ="null";
-            $objDemo->status ="null";
+
             $objDemo->save();
             //$contact = Contact::all();
            // foreach ( $contact as  $contacts){
             
            // }
-            Mail::to('tr.narathorn@nioachievers.com')->send(new NggTimePieces($objDemo));
+            Mail::to('tr.narathorn@nioachievers.com')->send(new AppointmentMail($objDemo));
           
             dd("Email is Send.");
     }

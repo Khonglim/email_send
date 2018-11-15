@@ -15,16 +15,17 @@ class CreateContactTable extends Migration
     {
         Schema::create('contact', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('name',100);
-            $table->char('phonenumber',100);
-            $table->char('email',100);
-            $table->char('subject',100);
-            $table->char('message',100);
-            $table->char('day',100);
-            $table->char('time',100);
-            $table->char('ip',100);
-            $table->char('page',100);
-            $table->char('status',100);
+            $table->char('firstname',100)->nullable();;
+            $table->char('lastname',100)->nullable();;
+            $table->char('phonenumber',100)->nullable();;
+            $table->char('email',100)->nullable();;
+            $table->char('subject',100)->nullable();;
+            $table->string('message',500)->nullable();;
+            $table->char('day',100)->nullable();;
+            $table->char('time',100)->nullable();;
+            $table->char('ip',100)->nullable();;
+            $table->char('page',100)->nullable();;
+            $table->char('status',100)->nullable();;
             $table->timestamps();
         });
     }

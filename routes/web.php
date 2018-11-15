@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
+    //return view('emails.appointment');
     return view('emails.contact');
 });
 
 Route::resource('appointment','AppointmentController');
-Route::resource('contact','ContactmentController');
+Route::resource('contact','ContactController');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

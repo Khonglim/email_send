@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 
+use App\Contact;
 class ContactController extends Controller
 {
     /**
@@ -34,7 +37,30 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'g-recaptcha-response' => 'required|captcha'
+       ]);
+            
+            $objDemo = new Contact();
+
+            $objDemo->firstname = $request->first_name;
+            $objDemo->lastname = $request->last_name;
+            $objDemo->phonenumber = $request->phone;
+            $objDemo->email = $request->email;
+            $objDemo->subject = $request->subject;
+            $objDemo->message = $request->message;
+           
+            $objDemo->ip = $request->ip();
+            $objDemo->page =$request->preface;
+        
+            $objDemo->save();
+            //$contact = Contact::all();
+           // foreach ( $contact as  $contacts){
+            
+           // }
+            Mail::to('tr.narathorn@nioachievers.com')->send(new ContactMail($objDemo));
+          
+            dd("Email is Send.");
     }
 
     /**
