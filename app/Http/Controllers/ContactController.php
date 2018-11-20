@@ -37,12 +37,10 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'g-recaptcha-response' => 'required|captcha'
-       ]);
-            
+      
+   
+     
             $objDemo = new Contact();
-
             $objDemo->firstname = $request->first_name;
             $objDemo->lastname = $request->last_name;
             $objDemo->phonenumber = $request->phone;
@@ -54,13 +52,10 @@ class ContactController extends Controller
             $objDemo->page =$request->preface;
         
             $objDemo->save();
-            //$contact = Contact::all();
-           // foreach ( $contact as  $contacts){
-            
-           // }
-            Mail::to('tr.narathorn@nioachievers.com')->send(new ContactMail($objDemo));
+            $mail='narathorn2539@hotmail.com';  //เปลี่ยนเมลล์
+            Mail::to($mail)->send(new ContactMail($objDemo));
           
-            dd("Email is Send.");
+            return redirect('save');
     }
 
     /**

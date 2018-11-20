@@ -7,6 +7,7 @@ use App\Mail\AppointmentMail;
 use Illuminate\Support\Facades\Mail;
 use App\Email;
 
+
 class AppointmentController extends Controller
 {
     /**
@@ -40,7 +41,7 @@ class AppointmentController extends Controller
         $this->validate($request,[
             'g-recaptcha-response' => 'required|captcha'
        ]);
-            
+            $mail='chaichan@nioachievers.com';  //เปลี่ยนเมลล์
             $objDemo = new Email();
             $objDemo->firstname = $request->first_name;
             $objDemo->lastname = $request->last_name;
@@ -57,9 +58,9 @@ class AppointmentController extends Controller
            // foreach ( $contact as  $contacts){
             
            // }
-            Mail::to('tr.narathorn@nioachievers.com')->send(new AppointmentMail($objDemo));
+            Mail::to( $mail)->send(new AppointmentMail($objDemo));
           
-            dd("Email is Send.");
+            return redirect('save');
     }
 
     /**

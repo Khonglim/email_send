@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>NGGTM</title>
         <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet"  href="https://fonts.googleapis.com/css?family=Prompt">
@@ -25,15 +25,16 @@
         <link href="{{ asset('css_nggtp/daterangepicker.css') }}"   rel='stylesheet' type='text/css' />
         
         <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>   
-    <title>Document</title>
+ 
 </head>
 <body>
         <div class="container">
+                <form action="{{url('contact')}}" method="post">
+                        @csrf
     <center><h2>CONTACT US</h2></center>
     <hr width="10%" align="left">
     Please specify your preferred mode of contact and we will respond as quickly as possible <br>
-    <form action="{{url('contact')}}" method="post">
-            @csrf
+   
     <div class="row">
         <div class="col-md-2">
             <div class="form-group">
@@ -107,14 +108,14 @@
     </div>
     <br><br>
     <div class="form-group">
-            <center>     {!! NoCaptcha::display() !!}
+        <center>     {!! NoCaptcha::display() !!}
                 
-                    @if ($errors->has('g-recaptcha-response'))
-                    <span class="help-block text-danger">
-                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                    </span>
-                @endif
-            </center>
+            @if ($errors->has('g-recaptcha-response'))
+            <span class="help-block text-danger">
+                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+            </span>
+        @endif
+    </center>
         <br>
                     <center><input type="submit" class="btn btn-default" value="SEND"></center>
             </div>
