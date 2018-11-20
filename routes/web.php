@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
    // return view('emails.appointment');
-    return view('emails.contact');
+   return view('emails.contact');
 });
 
 Route::resource('appointment','AppointmentController');

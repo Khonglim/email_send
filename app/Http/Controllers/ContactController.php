@@ -37,9 +37,9 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-      
-   
      
+   
+            $mail='chaichan@nioachievers.com';  //เปลี่ยนเมลล์
             $objDemo = new Contact();
             $objDemo->firstname = $request->first_name;
             $objDemo->lastname = $request->last_name;
@@ -52,7 +52,7 @@ class ContactController extends Controller
             $objDemo->page =$request->preface;
         
             $objDemo->save();
-            $mail='narathorn2539@hotmail.com';  //เปลี่ยนเมลล์
+           
             Mail::to($mail)->send(new ContactMail($objDemo));
           
             return redirect('save');
